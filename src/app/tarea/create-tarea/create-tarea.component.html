@@ -1,0 +1,26 @@
+<ng-template #mdtarea let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Nueva tarea</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <Form [formGroup]="formTareas">
+            <label for="">Titulo</label>
+            <input type="text" formControlName="titulo" class="form-control" [ngClass]="{ 'is-invalid': formValidatorStatus && formValidator.titulo.errors }">
+            <div *ngIf="formValidatorStatus && formValidator.titulo.errors" class="invalid-feedback">
+                <div *ngIf="formValidator.titulo.errors.required">* obligatorio</div>
+            </div>
+            <div class="d-flex justify-content-end py-2">
+                <button type="button" class="btn btn-info mr-3" (click)=" saveSubmitTarea()">guardar</button>
+                <button type="button" class="btn btn-danger mr-2" (click)="modal.close('Close click')">salir</button>
+            </div>
+        </Form>
+    </div>
+    <div class="modal-footer">
+
+    </div>
+</ng-template>
+<button class="btn btn-outline-success mb-2 mr-2" *ngIf="TypeButton==1" (click)="mdCallmodalService(mdtarea)">{{nameButton}}</button>
+<button class="btn btn-outline-info" *ngIf="TypeButton==2" (click)="mdCallmodalService(mdtarea)"><i class="fas fa-pen-square"></i></button>

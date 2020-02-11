@@ -1,0 +1,16 @@
+<ng-template #mdtarea let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Eliminar</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <h3 class="text-danger">Quieres eliminar esta tarea?</h3>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-info mr-3" (click)=" deleteTarea()">Eliminar</button>
+        <button type="button" class="btn btn-danger mr-2" (click)="modal.close('Close click')">salir</button>
+    </div>
+</ng-template>
+<button class="btn btn-danger btn-xs" (click)="modalCallService(mdtarea)"><span class="fas fa-trash"></span></button>
